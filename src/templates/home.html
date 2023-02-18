@@ -2,12 +2,14 @@
 
 {% block content %}
 <h1>My blog</h1>
+<a href="{% url 'article_create' %}">Create new article</a>
 <h2>Articles:</h2>
 <ul>
   {% for article in articles %}
   <li>
     {{ article.title }}
     &dash; <a href="{% url 'article_detail' pk: article.id %}">View</a>
+    &dash; <a href="{% url 'article_update' pk: article.id %}">Update</a>
   </li>
   {% endfor %}
 </ul>

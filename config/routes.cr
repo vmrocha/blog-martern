@@ -2,7 +2,9 @@
 # For more information please see: https://martenframework.com/docs/handlers-and-http/routing
 Marten.routes.draw do
   path "/", HomeHandler, name: "home"
+  path "/article/create", ArticleCreateHandler, name: "article_create"
   path "/article/<pk:int>", ArticleDetailHandler, name: "article_detail"
+  path "/article/<pk:int>/update", ArticleUpdateHandler, name: "article_update"
 
   if Marten.env.development?
     path "#{Marten.settings.assets.url}<path:path>", Marten::Handlers::Defaults::Development::ServeAsset, name: "asset"
