@@ -1,0 +1,13 @@
+<form method="post" action="" novalidate>
+  <input type="hidden" name="csrftoken" value="{% csrf_token %}" />
+
+  <div><label>Title</label></div>
+  <input type="text" name="{{ schema.title.id }}" value="{{ schema.title.value }}" />
+  {% for error in schema.title.errors %}<p class="input-error"><small>{{ error.message }}</small></p>{% endfor %}
+
+  <div><label>Content</label></div>
+  <textarea name="{{ schema.content.id }}" value="{{ schema.content.value }}">{{ schema.content.value }}</textarea>
+  {% for error in schema.content.errors %}<p class="input-error"><small>{{ error.message }}</small></p>{% endfor %}
+
+  <div><button>Submit</button></div>
+</form>
