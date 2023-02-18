@@ -1,7 +1,5 @@
-class ArticleDetailHandler < Marten::Handler
-  def get
-    render("article_detail.html", context: {article: Article.get!(id: params["pk"])})
-  rescue Marten::DB::Errors::RecordNotFound
-    raise Marten::HTTP::Errors::NotFound.new("Article not found")
-  end
+class ArticleDetailHandler < Marten::Handlers::RecordDetail
+  model Article
+  template_name "article_detail.html"
+  record_context_name "article"
 end
