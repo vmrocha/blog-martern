@@ -5,6 +5,7 @@ Marten.routes.draw do
   path "/article/create", ArticleCreateHandler, name: "article_create"
   path "/article/<pk:int>", ArticleDetailHandler, name: "article_detail"
   path "/article/<pk:int>/update", ArticleUpdateHandler, name: "article_update"
+  path "/article/<pk:int>/delete", ArticleDeleteHandler, name: "article_delete"
 
   if Marten.env.development?
     path "#{Marten.settings.assets.url}<path:path>", Marten::Handlers::Defaults::Development::ServeAsset, name: "asset"

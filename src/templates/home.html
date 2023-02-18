@@ -10,6 +10,7 @@
     {{ article.title }}
     &dash; <a href="{% url 'article_detail' pk: article.id %}">View</a>
     &dash; <a href="{% url 'article_update' pk: article.id %}">Update</a>
+    &dash; <a href="{% url 'article_delete' pk: article.id %}">Delete</a>
   </li>
   {% endfor %}
 </ul>
