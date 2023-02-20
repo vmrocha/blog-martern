@@ -3,4 +3,12 @@
 {% block content %}
 <h1>{{ article.title }}</h1>
 <p>{{ article.content }}</p>
+<ul>
+  {% for comment in article.comments %}
+  <li>{{ comment.message }}</li>
+  {% else %}
+  <li>No comments!</li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
